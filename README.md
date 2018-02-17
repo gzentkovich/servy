@@ -1,7 +1,7 @@
 # Servy
 
 A Simple Web Server built with Elixir 1.6.1
-[Warning: This is a working Alpha, chasing Beta app. So use at your own risk.]
+* Warning: This is a working Alpha, chasing Beta app. So use at your own risk.
 
 ## Installation
 
