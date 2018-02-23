@@ -50,6 +50,10 @@ defmodule Servy.Handler do
       |> handle_file(conv)
   end
 
+  def route(%Conv{ path: path } = conv) do
+    %{ conv | status: 404, resp_body: "No #{path} here!"}
+  end
+
   def handle_file({:ok, content}, conv) do
     %{ conv | status: 200, resp_body: content }
   end
@@ -60,10 +64,6 @@ defmodule Servy.Handler do
 
   def handle_file({:error, reason}, conv) do
     %{ conv | status: 500, resp_body: "File error: #{reason}" }
-  end
-
-  def route(%Conv{ path: path } = conv) do
-    %{ conv | status: 404, resp_body: "No #{path} here!"}
   end
 
   def format_response(%Conv{} = conv) do
